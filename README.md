@@ -1,48 +1,41 @@
-# RadialMR
+# MVMR-CVD Online Supplementary Material
 
-## Installation
+This online repository contains supplementary material for summary MR and MVMR analyses of coronary heart disease (CHD) and ischemic stroke.
 
-To install `RadialMR` directly from the GitHub repository, first make sure you have the `devtools` package installed:
+## CVD_Review.csv
 
-```r
-install.packages("remotes")
-```
+`CVD_Review` is a .csv file containing papers exploring causal determinants of CHD and stroke, corresponding to Figure 1 (right) and satisfying the following criteria:
 
-Then the `RadialMR` package can be installed using:
-```r
-remotes::install_github("WSpiller/RadialMR")
-```
-To update the package just run the `remotes::install_github("WSpiller/RadialMR")` command again.
+1. Are accessible and written in English
 
-## Description
+2. Are not a review or meta-analysis
 
-We have written the `RadialMR` R package to produce radial plots and to perform radial
-regression for inverse variance weighted and MR-Egger regression models. The package contains a total of five functions:
+3. Are not animal or cell model studies
 
-1. The `format_radial` function is used to convert a data frame containing summary data into a set format for radial analyses.
+4. Use controls which do not have known pre-existing CVD conditions.
 
-2. The `ivw_radial` function fits a radial inverse variance weighted (IVW) model using either first order, second order, or modified
-second order weights. It provides an effect estimate and allows for outliers to be identified using Cochran's Q-statistic. This function 
-now also includes iterative and exact IVW estimation, as described in: Improving the accuracy of two-sample summary data Mendelian randomization: 
-moving beyond the NOME assumption(https://www.biorxiv.org/content/early/2018/07/02/159442).
+5. Satisfy Joanna Briggs Institute criteria for paper quality.
 
-3. The `egger_radial` function fits a radial MR-Egger model using either first order, second order, or modified
-second order weights. It provides an effect estimate and allows for outliers to be identified using Rucker's Q-statistic.
+## Summary_Analysis.R
 
-4. The `plotly_radial` function produces interactive radial plots corresponding to the output of the `ivw_radial` and `egger_radial` functions.
+`Summary_Analysis` is a .R file with which summary MR and MVMR analyses can be replicated. The code is commented and includes the forward selection algorithm for selecting an appropriate MVMR model (see Methods).
 
-5. The `plot_radial` function produces a radial plot corresponding to the output of the `ivw_radial` and `egger_radial` functions. The
-function provides a range of scaling and aesthetic options showing either an IVW estimate, MR-Egger estimate, or both estimates simultaneously.
+## Incident_Analysis.R
 
-Radial plots are produced by many existing R packages such as `metafor`, `numOSL`, and `Luminescence`. Care will need to be taken, however, to input data from an
-MR-analysis appropriately into these generic platforms. For this reason we will also continue to develop our own `RadialMR` package to produce radial plots and conduct
-radial plot regression for the MR-setting.
+`Incident_Analysis` is a .R file with which summary MR and MVMR analyses using summary GWAS data of incident ischemic stroke can be replicated. The code is commented and includes the forward selection algorithm for selecting an appropriate MVMR model (see Methods). The code requires files `summary_ISdat_v4_1_formatted.csv` and `summary_ISdat_v4_2_formatted` which contain a subset of GWAS summary data corresponding to the set of instruments, sourced from the incident stroke GWAS.
+
+
+## summary_ISdat_v4_1_formatted.csv
+
+`summary_ISdat_v4_1_formatted` is a .csv file, containing GWAS summary data for ischemic stroke corresponding to exposure instruments used in univariable summary MR analyses 
+
+## summary_ISdat_v4_2_formatted.csv
+
+`summary_ISdat_v4_2_formatted` is a .csv file, containing GWAS summary data for ischemic stroke corresponding to exposure instruments used in univariable summary MVMR analyses 
 
 ## Citation
 
-The paper has been published in the International Journal of Epidemiology:
-
-[Bowden, J., et al., Improving the visualization, interpretation and analysis of two-sample summary data Mendelian randomization via the Radial plot and Radial regression. International Journal of Epidemiology, 2018. 47(4): p. 1264-1278.] (https://academic.oup.com/ije/article/47/4/1264/5046668)
+The preprint version of this publication is available at:
 
 ## License
 
